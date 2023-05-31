@@ -1,0 +1,14 @@
+[
+  {
+    "comment_description": "I like OOP",
+    "author": "Lillian",
+    "blog_id": 1,
+    "user_id": 2
+  },
+  {
+    "comment_description": "I like MVC",
+    "author": "Sally",
+    "blog_id": 2,
+    "user_id": 1
+  }
+]
