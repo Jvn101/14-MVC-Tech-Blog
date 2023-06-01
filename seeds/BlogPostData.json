@@ -2,11 +2,11 @@
   {
     "title": "Object Oriernted programming",
     "description": "s a computer programming model that organizes software design around data, or objects, rather than functions and logic",
-    "author": "Lillian"
+    "user_id": 1
   },
   {
     "title": "Model-View-Controller (MVC)",
     "description": "MVC s a pattern in software design commonly used to implement user interfaces, data, and controlling logic",
-    "author": "Sally"
+    "user_id": 2
   }
 ]

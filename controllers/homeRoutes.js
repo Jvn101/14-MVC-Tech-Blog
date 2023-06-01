@@ -1,25 +1,25 @@
 const router = require('express').Router();
-const { Project, User } = require('../models');
+const { Users, BlogPost, Comments } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
     // Get all projects and JOIN with user data
-    const projectData = await Project.findAll({
+    const BlogData = await Project.findAll({
       include: [
         {
           model: User,
-          attributes: ['name'],
+          attributes: ['username'],
         },
       ],
     });
 
     // Serialize data so the template can read it
-    const projects = projectData.map((project) => project.get({ plain: true }));
+    const blogs = BlogData.map((BlogPost) => BlogPost.get({ plain: true }));
 
     // Pass serialized data and session flag into template
     res.render('homepage', { 
-      projects, 
+      blogs, 
       logged_in: req.session.logged_in 
     });
   } catch (err) {
@@ -27,21 +27,26 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/project/:id', async (req, res) => {
+router.get('/blog/:id', async (req, res) => {
   try {
-    const projectData = await Project.findByPk(req.params.id, {
+    const BlogData = await Blogpost.findByPk(req.params.id, {
       include: [
         {
-          model: User,
-          attributes: ['name'],
+          model: Users,
+          attributes: ['username'],
         },
+          {
+            model: Comments,
+            attributes: ['user_id'],
+          },
       ],
     });
 
-    const project = projectData.get({ plain: true });
+    //check const - what is this 
+      const blog = BlogData.get({ plain: true });
 
-    res.render('project', {
-      ...project,
+    res.render('blog', {
+      ...blog,
       logged_in: req.session.logged_in
     });
   } catch (err) {
