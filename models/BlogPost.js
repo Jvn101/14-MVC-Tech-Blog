@@ -18,8 +18,8 @@ BlogPost.init(
     description: {
       type: DataTypes.STRING,
     },
-    author: {
-      type: DataTypes.STRING,
+    user_id: {
+      type: DataTypes.INTEGER,
       references: {
         model: 'user',
         key: 'id',
@@ -30,21 +30,13 @@ BlogPost.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-
-    // user_id: {
-    //   type: DataTypes.INTEGER,
-    //   references: {
-    //     model: 'user',
-    //     key: 'id',
-    //   },
-    // },
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'BlogPost',
+    modelName: 'blog',
   }
 );
 

@@ -3,21 +3,28 @@ const BlogPost = require('./BlogPost');
 const Comments = require('./Comments');
 
 Users.hasMany(BlogPost, {
-  foreignKey: 'user_id',
-  onDelete: 'CASCADE'
+  foreignKey: 'user_id'
 });
 
 BlogPost.belongsTo(Users, {
   foreignKey: 'user_id'
 });
 
+Users.hasMany(Comments, {
+  foreignKey: 'user_id'
+})
+
+Comments.belongsTo(Users, {
+  foreignKey: 'user_id'
+})
+
 //is foreign key correct???
 BlogPost.hasMany(Comments, {
-  foreignKey: 'comments_id'
+  foreignKey: 'blog_id'
 })
 
 Comments.belongsTo(BlogPost, {
-  foreignKey: 'BlogPost_id'
+  foreignKey: 'blog_id'
 })
 
 module.exports = { Users, BlogPost, Comments };

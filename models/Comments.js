@@ -14,13 +14,6 @@ Comments.init(
     comment_description: {
       type: DataTypes.STRING,
     },
-    author: {
-      type: DataTypes.STRING,
-      references: {
-        model: 'user',
-        key: 'id',
-      },
-    },
     date_created: {
       type: DataTypes.DATE,
       allowNull: false,
