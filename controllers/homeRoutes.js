@@ -5,7 +5,7 @@ const withAuth = require('../utils/auth');
 router.get('/', async (req, res) => {
   try {
     // Get all Blogs and JOIN with user data
-    const BlogData = await BlogPost.findAll({
+    const blogData = await BlogPost.findAll({
       include: [
         {
           model: Users,
@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
     });
 
     // Serialize data so the template can read it
-    const blogs = BlogData.map((BlogPost) => BlogPost.get({ plain: true }));
+    const blogs = blogData.map((blog) => blog.get({ plain: true }));
 
     // Pass serialized data and session flag into template
     res.render('homepage', { 
@@ -29,7 +29,7 @@ router.get('/', async (req, res) => {
 
 router.get('/blog/:id', async (req, res) => {
   try {
-    const BlogData = await BlogPost.findByPk(req.params.id, {
+    const blogData = await BlogPost.findByPk(req.params.id, {
       include: [
         {
           model: Users,
@@ -37,13 +37,13 @@ router.get('/blog/:id', async (req, res) => {
         },
           {
             model: Comments,
-            attributes: ['user_id'],
+            include: [Users],
           },
       ],
     });
 
     //check const - what is this 
-      const blog = BlogData.get({ plain: true });
+      const blog = blogData.get({ plain: true });
 
     res.render('blog', {
       ...blog,

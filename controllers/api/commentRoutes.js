@@ -2,13 +2,22 @@ const router = require('express').Router();
 const { Comments } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.get('/', withAuth, async (req, res) => {
-  Comments.findAll({})
+// router.get('/', withAuth, async (req, res) => {
+//   Comments.findAll({})
+//   .then(commentData => res.json(commentData))
+//   .catch(err => {
+//     console.log(err);
+//     res.status(500).json(err)
+//   })
+// });
+
+router.get('/', (req,res) => {
+  Comment.findAll({})
   .then(commentData => res.json(commentData))
   .catch(err => {
-    console.log(err);
-    res.status(500).json(err)
-  })
+      console.log(err);
+      res.status(500).json(err)
+  });
 });
 
 router.get('/:id', (req, res) => {
@@ -31,7 +40,7 @@ router.post('/', withAuth, async (req, res) => {
       user_id: req.session.user_id,
     });
 
-    res.status(200).json(newComment);
+    res.json(newComment);
   } catch (err) {
     res.status(400).json(err);
   }
