@@ -422,6 +422,7 @@ button {
 a {
   color: #1b89bc;
   text-decoration: none;
+  padding: 10px
 }
 
 a:hover {
