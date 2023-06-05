@@ -40,8 +40,12 @@ router.get('/blog/:id', async (req, res) => {
             include: [Users],
           },
       ],
-    });
+    });4
 
+    if (!blogData) {
+      res.status(404).json({ message: "No blogs found with this id" });
+      return;
+    }
   
       const blog = blogData.get({ plain: true });
 
