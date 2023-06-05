@@ -42,7 +42,7 @@ router.get('/blog/:id', async (req, res) => {
       ],
     });
 
-    //check const - what is this 
+  
       const blog = blogData.get({ plain: true });
 
     res.render('blog', {
