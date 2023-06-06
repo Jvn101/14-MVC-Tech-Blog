@@ -20,15 +20,12 @@ Users.init(
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
-      validate: {
-        isUsername: true,
-      },
     },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [15],
+        len: [7],
       },
     },
   },
