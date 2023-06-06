@@ -5,7 +5,7 @@ This application is a CMS-style blog site (similar to a Wordpress site), where d
 
 ![Login](./Images/login.png) 
 ![Home](./Images/Home.png) 
-![dashboard1](./Images/dashbaord1.png) 
+![dashboard1](./Images/dashboard1.png) 
 ![dashboard](./Images/dashboard.png) 
 
 ## Table of Contents 
