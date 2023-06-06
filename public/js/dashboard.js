@@ -30,7 +30,7 @@ const delButtonHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/blog');
+      document.location.replace('/dashboard');
     } else {
       alert('Failed to delete blog post');
     }
@@ -44,3 +44,26 @@ document
 document
   .querySelector('.blog-list')
   .addEventListener('click', delButtonHandler);
+
+
+
+  // dashboard function - click on dashbaord and show user dashbaord
+  // document
+  // .querySelector('.dashboard')
+  // .addEventListener('click', dashboardHandler);
+
+  // const dashboardHandler = async (event) => {
+  //   if (event.target.hasAttribute('data-id')) {
+  //     const id = event.target.getAttribute('data-id');
+  
+  //     const response = await fetch(`/api/blog/${id}`, {
+  //       method: 'DELETE',
+  //     });
+  
+  //     if (response.ok) {
+  //       document.location.replace('/dashboard');
+  //     } else {
+  //       alert('Failed to delete blog post');
+  //     }
+  //   }
+  // };
