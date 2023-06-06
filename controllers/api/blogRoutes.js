@@ -10,7 +10,6 @@ router.post('/', async (req, res) => {
       user_id: 1,
     });
 
-    //issue with this line
     res.status(200).json(newBlogPost);
   } catch (err) {
     res.status(400).json(err.message);

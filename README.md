@@ -3,7 +3,10 @@
 ## Description
 This application is a CMS-style blog site (similar to a Wordpress site), where developers can publish their blog posts and comment on other developers’ posts as well.
 
-![Image](/Images/demo.png) 
+![Login](./Images/login.png) 
+![Home](./Images/Home.png) 
+![dashboard1](./Images/dashbaord1.png) 
+![dashboard](./Images/dashboard.png) 
 
 ## Table of Contents 
 
