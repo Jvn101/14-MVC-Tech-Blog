@@ -10,7 +10,8 @@ router.post('/', async (req, res) => {
       user_id: 1,
     });
 
-    res.status(200).json(newBlogPost).redirect("/dashboard");
+    //issue with this line
+    res.status(200).json(newBlogPost);
   } catch (err) {
     res.status(400).json(err.message);
   }
@@ -25,7 +26,7 @@ router.delete('/:id', async (req, res) => {
       },
     });
 
-    res.status(200).json(blogData).redirect("/dashboard");
+    res.status(200).json(blogData);
   } catch (err) {
     res.status(500).json(err);
   }

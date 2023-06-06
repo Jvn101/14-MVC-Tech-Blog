@@ -13,7 +13,7 @@ const commentFormHandler = async function (event) {
 				comment_description,
 			}),
 		});
-    const data = await response.json();
+    //const data = await response.json();
 		document.location.reload();
 	}
 };

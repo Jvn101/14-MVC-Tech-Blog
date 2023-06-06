@@ -32,7 +32,7 @@ router.post('/', async (req, res) => {
       blog_id: req.params.id,
     });
 
-    res.json(newComment).redirect(`/blog/:${req.params.id}`);
+    res.json(newComment);
   } catch (err) {
     res.status(400).json(err);
   }

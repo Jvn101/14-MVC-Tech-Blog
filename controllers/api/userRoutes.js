@@ -6,11 +6,10 @@ router.post('/', async (req, res) => {
     const userData = await Users.create(req.body);
 
     req.session.save(() => {
-      req.session.user_id = userData.id;
+      req.session.user_id = userData.dataValues.id;
       req.session.logged_in = true;
 
-      res.status(200).json(userData);
-      res.redirect("/dashboard");
+      res.status(200).json(userData.dataValues);
     });
   } catch (err) {
     res.status(400).json(err);
